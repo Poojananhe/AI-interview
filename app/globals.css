@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --color-border: #3f3f46;
+  --color-background: #09090b;
+  --color-foreground: #fafafa;
+  --color-accent: #6366f1;
+  --color-accent-muted: #4338ca;
+  --color-card: #18181b;
+}
+
+:root {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --accent: #6366f1;
+  --accent-muted: #4338ca;
+  --card: #18181b;
+  --border: #3f3f46;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    outline: none;
+  }
+  body {
+    @apply bg-background text-foreground selection:bg-accent/30;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.glass-card {
+  @apply bg-card/60 backdrop-blur-xl border border-white/10 rounded-2xl;
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-accent;
+}
+
+.hero-gradient {
+  background: radial-gradient(circle at top left, oklch(0.4 0.2 260 / 0.15), transparent 40%),
+              radial-gradient(circle at bottom right, oklch(0.5 0.2 300 / 0.1), transparent 40%);
+}
+
+canvas {
+  touch-action: none;
+}
